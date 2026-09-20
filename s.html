@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Marry Me? ❤️</title>
+  <link rel="stylesheet" href="s.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Background Music Control -->
+  <button id="musicToggle" class="music-btn" title="Toggle Music">
+    <span id="musicIcon">🎵</span>
+  </button>
+  <audio id="bgMusic" loop src="https://assets.mixkit.co/music/preview/mixkit-romantic-sunset-688.mp3"></audio>
+
+  <!-- Canvas Layers for FX -->
+  <canvas id="hearts-canvas"></canvas>
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Hero Proposal Section -->
+  <header class="hero">
+    <div class="glass-card hero-card">
+      <div class="heart-icon">💖</div>
+      <span class="sub-title">A Special Question For A Special Girl</span>
+      
+      <!-- Typewriter Animation Target -->
+      <h1 id="typewriterText"></h1>
+      
+      <p>My life became infinitely brighter the day you stepped into it. I have a tiny question for you...</p>
+      
+      <!-- Interactive Proposal Buttons -->
+      <div class="proposal-actions">
+        <button id="yesBtn" class="btn btn-yes">YES! 💕</button>
+        <button id="noBtn" class="btn btn-no">No 🙈</button>
+      </div>
+
+      <!-- Love Letter Trigger Button -->
+      <button class="btn-link" onclick="openLetter()">Read My Secret Letter ✉️</button>
+    </div>
+  </header>
+
+  <!-- Celebration Modal -->
+  <div id="celebrationModal" class="modal">
+    <div class="modal-content glass-card">
+      <h2>YAYYYY! 🎉❤️</h2>
+      <p>You just made me the happiest person in the entire world! I promise to make every single day special for you!</p>
+      <button class="btn btn-yes" onclick="closeModal('celebrationModal')">Forever & Always ✨</button>
+    </div>
+  </div>
+
+  <!-- Love Letter Modal -->
+  <div id="letterModal" class="modal">
+    <div class="modal-content glass-card letter-box">
+      <h2>My Love Letter 💌</h2>
+      <p>
+        From the moment we first talked, I knew there was something exceptionally rare about you. 
+        Your laugh brightens up my darkest days, and your kindness inspires me to be a better person every single day.
+      </p>
+      <p>I don't just want a story with you, I want an endless journey.</p>
+      <button class="btn btn-yes" onclick="closeModal('letterModal')">Close Letter ❤️</button>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Counter Grid -->
+    <section class="section">
+      <div class="glass-card counter-card">
+        <h3>Days Since We First Spoke</h3>
+        <div class="counter-number" id="daysCount">365+</div>
+        <p>And every second has been worth it.</p>
+      </div>
+    </section>
+
+    <!-- Reasons Grid -->
+    <section class="section">
+      <h2 class="section-title">Why You Are So Special</h2>
+      <div class="grid-container">
+        <div class="glass-card feature-card">
+          <div class="card-icon">✨</div>
+          <h3>Kind & Pure Heart</h3>
+          <p>The gentle way you care for everyone around you makes you truly one of a kind.</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="card-icon">😊</div>
+          <h3>Magical Smile</h3>
+          <p>Your smile holds a dangerous amount of power over my happiness!</p>
+        </div>
+        <div class="glass-card feature-card">
+          <div class="card-icon">🌟</div>
+          <h3>My Safe Space</h3>
+          <p>With you, I can completely be myself without any hesitation.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Handcrafted with endless love, just for you ❤️</p>
+  </footer>
+
+  <script src="s.js"></script>
+</body>
+</html>

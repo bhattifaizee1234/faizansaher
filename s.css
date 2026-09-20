@@ -1,0 +1,229 @@
+:root {
+  --primary: #ff3366;
+  --primary-hover: #e02855;
+  --bg-gradient: linear-gradient(135deg, #0f0c20 0%, #2b102f 50%, #4a1236 100%);
+  --text: #ffffff;
+  --text-muted: #e0d0e0;
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --shadow: 0 8px 32px 0 rgba(255, 51, 102, 0.25);
+  --font-main: 'Poppins', sans-serif;
+  --font-accent: 'Caveat', cursive;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Background Animations */
+#hearts-canvas, #confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+#hearts-canvas { z-index: 1; }
+#confetti-canvas { z-index: 99; }
+
+/* Music Floating Toggle Button */
+.music-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Glassmorphism UI */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-card {
+  max-width: 700px;
+  width: 100%;
+}
+
+.heart-icon {
+  font-size: 3.5rem;
+  animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+.sub-title {
+  color: #ff99b3;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  display: block;
+}
+
+.hero h1 {
+  font-family: var(--font-accent);
+  font-size: clamp(2.5rem, 6.5vw, 4.5rem);
+  color: #fff;
+  margin: 12px 0;
+  min-height: 120px;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 24px;
+}
+
+/* Action Controls */
+.proposal-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 80px;
+}
+
+.btn {
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-yes {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(255, 51, 102, 0.4);
+}
+
+.btn-yes:hover {
+  background: var(--primary-hover);
+  transform: scale(1.08);
+}
+
+.btn-no {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: #ff99b3;
+  margin-top: 20px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+/* Counter & Feature Cards */
+.counter-card {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.counter-number {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: bold;
+  color: #ff99b3;
+  font-family: var(--font-accent);
+}
+
+.section { padding: 40px 0; }
+
+.section-title {
+  text-align: center;
+  font-family: var(--font-accent);
+  font-size: clamp(2.5rem, 5vw, 3.8rem);
+  color: #ff99b3;
+  margin-bottom: 30px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.feature-card { text-align: center; }
+.card-icon { font-size: 2.5rem; margin-bottom: 8px; }
+
+/* Modals */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal.active { display: flex; }
+.modal-content { text-align: center; max-width: 500px; width: 100%; }
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
